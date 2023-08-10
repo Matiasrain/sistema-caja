@@ -1,0 +1,54 @@
+/* Estilo para la fila de subtotal */
+.subtotal-row {
+    background-color: #d1d0d0 !important; /* Color de fondo gris */
+    font-weight: bold; /* Texto en negrita */
+  }
+  .subtotal-cell {
+    font-weight: bold; /* Puedes añadir negrita u otro estilo adicional */
+  }
+  .total-row{
+    background-color: #7e7e7e !important;
+    font-weight: bold; /* Texto en negrita */
+  }
+  /* Centrar el título "CARTERA DE VALORES" */
+#modalLabel.text-center {
+    width: 100%;
+  }
+  
+  /* Centrar el texto "DESDE [fechaDesde] HASTA [fechaHasta]" */
+  #contenidoModal p.text-center {
+    width: 100%;
+  }
+
+  /* Estilos para la impresión */
+
+  @media print {
+    /* Mostrar el modal y su contenido en la impresión */
+    #miModal {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    .modal-content {
+        overflow: visible !important;
+    }
+    /* Ajustar el tamaño del modal para que se ajuste a la página de impresión */
+    .modal-dialog {
+        max-width: 100% !important;
+    }
+}
+  
+#titulo{
+  background-color: #f8f9fa;
+  color: black;
+  padding: 10px;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+ 
+  font-family: sans-serif;
+}
+/* Cambia el color del texto en el SweetAlert */
+.sweet-alert .swal-text {
+  color: #ffffff; /* Cambia este color según tus preferencias */
+}

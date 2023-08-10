@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- META PARA NO ALMACENAR LA CACHE -->
+    <meta http-equiv="Expires" content="0">
+<meta http-equiv="Last-Modified" content="0">
+<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+<meta http-equiv="Pragma" content="no-cache">
+    <title>Página principal</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css?v=1">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script>
+      const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+      // Si no ha iniciado sesión, redirigirlo a la página de login
+      if (!isLoggedIn) {
+        window.location.href = "login.html";
+      }
+    </script>
+</head>
+<body>
+    
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="img/cheque.png" alt="Logo" style="width: 25px; height: 25px; margin-right: 5px;">
+              <B>CAJA</B>  
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdown1">
+                <li><a class="dropdown-item" href="php/caja.php">Caja</a></li>
+                <li><a class="dropdown-item" href="ingreso_rechazados.html">Ingreso de rechazados</a></li>
+                <li><a class="dropdown-item" href="cobranza_rechazados.html">Cobranza de rechazados</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="img/parametros.png" alt="Logo" style="width: 20px; height: 20px; margin-right: 5px;">
+                <B>PARAMETROS</B>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdown2">
+                <li><a class="dropdown-item" href="bancos.html">Bancos</a></li>
+                <li><a class="dropdown-item" href="cobradores.html">Cobradores</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="img/files.png" alt="Logo" style="width: 20px; height: 20px; margin-right: 5px;">
+                  <B>LISTADOS</B>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown2">
+                  <li><a class="dropdown-item" href="carteradevalores.html">Cartera de valores</a></li>
+                </ul>
+              </li>
+            <li class="nav-item">
+            <button class="nav-link" onclick="cerrarSesion()">
+              <img src="img/logout.png" alt="Logo" style="width: 20px; height: 20px; margin-right: 5px;">
+              <b>SALIR</b>
+            </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="background-container">
+        <p class="logo-text">Sistema Caja</p>
+        <img class="logo-image" src="img/imgLogoEtman.png" alt="Logo">
+      </div>
+      
+    
+    <!-- <div class="footer">
+        <div class="etman-logo">
+            <h2>ETMAN</h2>
+        </div>
+    </div> -->
+
+    <script src="js/login.js"></script>
+</body>
+</html>

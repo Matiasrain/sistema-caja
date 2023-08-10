@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ingresar Cheque</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../css/ingresar_cheque.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script>
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+    // Si no ha iniciado sesión, redirigirlo a la página de login
+    if (!isLoggedIn) {
+      window.location.href = "login.html";
+    }
+  </script>
+</head>
+<body>
+    <div class="container">
+  <h1 class="titulo">Baja de cheques</h1>
+
+  <form action="php/egresar_cheque.php" method="POST" class="formulario" id="formulario-cheque">
+    <div class="form-group">
+        <label for="bco-numero">Banco:</label>
+        <div class="input-group">
+          <input type="number" id="bco-numero" name="bco-numero" class="form-control input-chico" placeholder="Número" required onchange="obtenerNombreBanco()">
+          <input type="number" id="suc-numero" name="suc-numero" class="form-control input-chico" placeholder="Sucursal" required onchange="obtenerNombreBanco()">
+          <input type="text" id="bco-nombre" name="bco-nombre" class="form-control input-grande" placeholder="Nombre del Banco" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="nro">Número de cheque:</label>
+
+        <input type="number" id="num_cheque" name="nro-che" class="form-control input-chico" placeholder="Número" required onchange="obtenerDatosCheque()">
+        <input type="hidden" id="cobrador-nombre" name="cobrador-nombre" class="form-control input-grande">
+      </div>
+    <div class="form-group">
+      <label for="endosante">Endosante:</label>
+      <input type="text" id="endosante" name="endosante" class="form-control input-grande" placeholder="Nombre y Apellido" required>
+    </div>
+
+    
+
+    
+
+    <div class="form-group">
+      <label for="fecha">Fecha de vencimiento:</label>
+      <input type="date" id="fec-vto" name="fec-vto" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="importe">Importe:</label>
+      <input type="number" id="imp-che" name="imp-che" class="form-control" step="0.01" required>
+    </div>
+
+    <div class="form-group">
+      <label for="firmante">Firmante:</label>
+      <input type="text" id="fir-che" name="fir-che" class="form-control input-chico"  required>
+      <label for="cuit">CUIT:</label>
+      <input type="text" id="cuit-che" name="cuit-che" class="form-control input-chico" placeholder="CUIT" required>
+    </div>
+    <div class="form-group">
+        <label for="importe">Destino:</label>
+        <input type="text" id="dest-che" name="dest-che" class="form-control" step="0.01" required>
+      </div>
+      <div class="form-group">
+        <label for="fecha">Fecha de salida:</label>
+        <input type="date" id="fec-out" name="fec-out" class="form-control" required>
+      </div>
+      
+  
+    <br>
+
+    <input type="submit" value="Aceptar" class="btn btn-primary">
+    <input type="button" value="Cancelar" onclick="cerrarVentana()" class="btn btn-secondary">
+  </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./js/egresar_cheque.js"></script>
+  
+  
+  
+</body>
+</html>

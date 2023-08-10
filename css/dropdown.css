@@ -1,0 +1,30 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: #333; /* Color de fondo oscuro */
+    padding: 10px; /* Espaciado interno */
+}
+
+.dropdown-content button {
+    display: block;
+    background: none;
+    border: none;
+    padding: 5px;
+    color: #FFF; /* Color del texto en blanco */
+    cursor: pointer;
+    border-bottom: none; /* Eliminar la línea roja */
+}
+
+.dropdown-content button:last-child {
+    border-bottom: 1px solid transparent; /* Agregar un borde transparente al último botón */
+}
+
+.dropdown-content button:hover {
+    background-color: #555; /* Color de fondo al pasar el mouse */
+}

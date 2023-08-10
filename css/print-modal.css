@@ -1,0 +1,42 @@
+/* Estilos para la versión de impresión del modal */
+@media print {
+    /* Ocultar el botón Imprimir al imprimir */
+    #btnImprimir {
+      display: none;
+    }
+  
+    /* Centrar el título del modal */
+    #modalLabel {
+      text-align: center;
+    }
+  
+    /* Estilos para la tabla en el contenido del modal */
+    #contenidoModal table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+  
+    #contenidoModal th,
+    #contenidoModal td {
+      border: 1px solid #000;
+      padding: 8px;
+    }
+  
+    #contenidoModal th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+  
+    /* Estilos para las filas de subtotal y total en la tabla */
+    #contenidoModal .subtotal-row,
+    #contenidoModal .total-row {
+      font-weight: bold;
+    }
+  
+    /* Añadir márgenes para separar el título del contenido de la tabla */
+    #modalLabel,
+    #contenidoModal {
+      margin: 10px;
+    }
+  }

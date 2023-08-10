@@ -1,0 +1,13 @@
+#titulo{
+    background-color: #f8f9fa;
+    color: black;
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+  }
+  .modal-title{
+    color:#A30234;
+  }
+  

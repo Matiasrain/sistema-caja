@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cobradores</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/bancosb.css">
+  <script>
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+    // Si no ha iniciado sesión, redirigirlo a la página de login
+    if (!isLoggedIn) {
+      window.location.href = "login.html";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="d-flex justify-content-between">
+      <!--<a class="btn btn-primary" href="main.html">Volver</a>-->
+      <a href="main.html" class="btn btn-primary d-flex justify-content-center align-items-center" tabindex="-1" role="button" aria-disabled="true">Volver</a>
+      
+      
+    </div>
+  <div class="container mt-5">
+    <h1 class="text-center mb-4" id="titulo">Cobradores</h1>
+
+   
+
+     
+      <form action="php/guardar_cobrador.php" method="POST" class="formulario" id="formulario-banco">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="codigo-banco" class="form-label">Codigo</label>
+          <input type="number" id="codigo-cobrador" name="codigo-cob" class="form-control" required>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="sucursal-banco" class="form-label">Apellido y nombre</label>
+          <input type="text" id="nombre-cobrador" name="nombre-cob" class="form-control" required>
+        </div>
+      </div>
+      
+      
+
+      <div class="row mt-4">
+        <div class="col-md-12 d-flex justify-content-center">
+          <!--<button type="button" class="btn btn-secondary me-2 boton-accion">Encontrar</button>-->
+          <button type="button" id="myModal" class="btn btn-secondary me-2 boton-accion"data-bs-toggle="modal"data-bs-target="#exampleModal">
+            <img src="img/list.png" alt="Logo" style="width: 20px; height: 20px; margin-right: 5px;">Encontrar</button>
+          
+          <!-- MODAL DE BOOSTRAP -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Listado de cobradores</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Codigo</th>
+                            <th>Apellido y nombre</th>
+                          </tr>
+                        </thead>
+                        <tbody id="tablaCobradores">
+                          <tr>
+                            <!--<td></td>
+                            <td></td>-->
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+             <!-- </div>
+            </div>-->
+          
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-md-12 d-flex justify-content-center">
+          <button type="button" class="btn btn-primary me-2" id="boton-agregar" onclick="habilitarGuardar()">Agregar cobrador</button>
+          <button type="button" class="btn btn-danger me-2" id="boton-salirdeagregar"style="display: none;" onclick="deshabilitarGuardar()">Salir de Agregar banco</button>
+          <input type="submit" value="Guardar" class="btn btn-primary me-2" id="boton-guardar" disabled>
+          <button type="button" class="btn btn-danger me-2 boton-accion" onclick="eliminarCobrador()">Eliminar cobrador</button>
+        </div>
+      </div>
+
+    </form>
+    
+    
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/cobradores.js"></script>
+</body>
+</html>
