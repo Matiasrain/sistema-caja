@@ -53,9 +53,12 @@ function mostrarAlerta(tipo, mensaje) {
     showConfirmButton: false,
     timer: 1500
   }).then(() => {
-    //cerrarModal();
-    // document.getElementById("formulario-cheque").reset(); // Resetea los campos del formulario
-  });
+    
+    
+    setTimeout(() => {
+      window.location.href = 'caja.php'; // Reemplaza 'caja.php' con la URL correcta
+  }, 500);
+});
 }
 
 // Agrega un evento de escucha al formulario
@@ -111,12 +114,15 @@ document.getElementById("formulario-cheque").addEventListener("submit", function
 
 function mostrarAlertaEgreso() {
   Swal.fire({
-    icon: 'success',
-    title: 'Cheque Egresado',
-    showConfirmButton: false,
-    timer: 1500
+      icon: 'success',
+      title: 'Cheque Egresado',
+      showConfirmButton: false,
+      timer: 1500
   }).then(() => {
-    cerrarModalEgreso();
+      cerrarModalEgreso();
+      setTimeout(() => {
+          location.reload(true);
+      }, 500); // Espera 500 milisegundos antes de recargar la página
   });
 }
 // Agrega un evento de escucha al formulario
@@ -158,4 +164,10 @@ function validarFormulario() {
   }
 
   return true; // Envía el formulario si la fecha está seleccionada
+}
+function cerrarSesion() {
+  localStorage.removeItem("isLoggedIn");
+  window.location.reload(true);
+  window.location.href = "../login.html";
+
 }

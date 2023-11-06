@@ -23,9 +23,43 @@
   border: 1px solid #dee2e6;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
- 
+  font-weight: bold;
   font-family: sans-serif;
 }
 .modal-title{
-  color:#A30234;
+  color:#a40931;
+}
+footer {
+  height: 50px;
+  background-color: #A30234;
+  width: 100%;
+  margin-top: 20px;
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-between; */
+  min-height: 100vh;
+}
+#dropdown2{
+  color: white;
+  font-weight: bold;
+}
+#dropdown1{
+  color: white;
+  font-weight: bold;
+}
+.navbar-nav .nav-item {
+margin-right: 100px;
+}
+.modal.fade .modal-dialog .modal-content {
+  border: 3px solid #A30234 !important;
+  border-radius: 10px !important;
+}
+#subtitulo1{
+  font-weight: bold;
+}
+#subtitulo2{
+  font-weight: bold;
 }

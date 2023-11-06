@@ -40,7 +40,12 @@ function obtenerNombreCobrador() {
     $('#exampleModal').modal('hide');
   }
   
-
+  function cerrarSesion() {
+    localStorage.removeItem("isLoggedIn");
+    window.location.reload(true);
+    window.location.href = "login.html";
+  
+  }
   
  // --------------------------INGRESO DE RECHAZADOS---------------------------------
 
@@ -72,98 +77,203 @@ function obtenerNombreEndosante() {
   });
 }
 
+// //-----------------------------------COD DEL MODAL ------------------------------------------
+// const myModal = document.getElementById('exampleModal')
+// const myInput = document.getElementById('myInput')
+
+// myModal.addEventListener('shown.bs.modal', () => {
+  
+//   console.log('dasdsa')
+//   let table_body = document.querySelector('#tablacheques')
+
+//   $.get('./php/ver_cheques_rechazados.php')
+//   .done((res)=>{
+//     let respuesta = JSON.parse(res)
+//     // console.log(respuesta)
+//     //RECORRO CON MAP LOS OBJETOS DEL JSON
+//     respuesta.map((objeto)=>{
+//         console.log(objeto)
+        
+//         let tr = document.createElement('tr')   //tabla
+        
+
+//         let codigo = document.createElement('td')
+//         codigo.innerHTML = objeto.cod_bco   //valor del cod_cob al input por INNERHTML
+
+//         let codigo_suc = document.createElement('td')
+//         codigo_suc.innerHTML = objeto.suc_bco
+
+//         let nro_cheque = document.createElement('td')
+//         nro_cheque.innerHTML = objeto.nro_che
+//         let fecha_vencimiento = document.createElement('td')
+//         fecha_vencimiento.innerHTML = objeto.fec_vto
+//         let fecha_ingreso = document.createElement('td')
+//         fecha_ingreso.innerHTML = objeto.fec_in
+//         let impcheque = document.createElement('td')
+//         impcheque.innerHTML = objeto.imp_che
+//         let endcheque = document.createElement('td')
+//         endcheque.innerHTML = objeto.end_che
+//         let cod_cob = document.createElement('td')
+//         cod_cob.innerHTML = objeto.cod_cob
+//         let fircheque = document.createElement('td')
+//         fircheque.innerHTML = objeto.fir_che
+//         let cuitcheque = document.createElement('td')
+//         cuitcheque.innerHTML = objeto.cuit_che
+//         //prueba de ingreso rechazados
+//         let destche = document.createElement('td')
+//         destche.innerHTML = objeto.dest_che
+//         let fecout = document.createElement('td')
+//         fecout.innerHTML = objeto.fec_out
+//         let fecrech = document.createElement('td')
+//         fecrech.innerHTML = objeto.fec_rech
+//         let obsche = document.createElement('td')
+//         obsche.innerHTML=objeto.obs_che
+
+
+//         tr.append(codigo, codigo_suc,nro_cheque, fecha_vencimiento,fecha_ingreso,impcheque,endcheque, cod_cob, fircheque,cuitcheque,destche,fecout,fecrech,obsche)   //Con append sumo los valores de las variables a la tabla
+        
+        
+//         //
+//         tr.onclick = ()=>{
+//             // console.log(`${objeto.cod_cob} ${objeto.nom_cob}`)
+//              $('#bco-numero').val(objeto.cod_bco)
+//              $('#suc-numero').val(objeto.suc_bco)
+//              $('#num_cheque').val(objeto.nro_che)
+//              $('#endo-nombre').val(objeto.end_che)
+//              $('#fec-vto').val(objeto.fec_vto)
+//              //$('#fec-in').val(objeto.fec_in)
+//              $('#imp-che').val(objeto.imp_che)
+//              $('#fir-che').val(objeto.fir_che)
+//              $('#cuit-che').val(objeto.cuit_che)
+//              //prueba de ingreso rechazados
+//              $('#destino').val(objeto.dest_che)
+//              $('#fecha-out').val(objeto.fec_out)
+//              //cobranza rechazados
+//              $('#fecha-rech').val(objeto.fec_rech)
+//              $('#obs_che').val(objeto.obs_che)
+
+//              obtenerNombreBanco();
+//              cerrarModalEncontrar();
+           
+//             //document.getElementById('codigo-cobrador').value = objeto.cod_cob
+//         }
+
+//         table_body.append(tr)
+//     })
+//   })
+  
+// })
+
+// myModal.addEventListener('hide.bs.modal', () => {
+    
+//   $('#tablacheques tr').remove()
+
+// })
+
 //-----------------------------------COD DEL MODAL ------------------------------------------
-const myModal = document.getElementById('exampleModal')
-const myInput = document.getElementById('myInput')
+//-----------------------------------COD DEL MODAL ------------------------------------------
+const myModal = document.getElementById('exampleModal');
+const myInput = document.getElementById('myInput');
 
 myModal.addEventListener('shown.bs.modal', () => {
-  
-  console.log('dasdsa')
-  let table_body = document.querySelector('#tablacheques')
+  console.log('dasdsa');
+  let table_body = document.querySelector('#tablacheques');
 
   $.get('./php/ver_cheques_rechazados.php')
-  .done((res)=>{
-    let respuesta = JSON.parse(res)
-    // console.log(respuesta)
-    //RECORRO CON MAP LOS OBJETOS DEL JSON
-    respuesta.map((objeto)=>{
-        console.log(objeto)
-        
-        let tr = document.createElement('tr')   //tabla
-        
+    .done((res) => {
+      let respuesta = JSON.parse(res);
 
-        let codigo = document.createElement('td')
-        codigo.innerHTML = objeto.cod_bco   //valor del cod_cob al input por INNERHTML
+      // Limpiar el contenido de la tabla
+      table_body.innerHTML = '';
 
-        let codigo_suc = document.createElement('td')
-        codigo_suc.innerHTML = objeto.suc_bco
+      //RECORRO CON MAP LOS OBJETOS DEL JSON
+      respuesta.map((objeto) => {
+        let tr = document.createElement('tr'); //tabla
 
-        let nro_cheque = document.createElement('td')
-        nro_cheque.innerHTML = objeto.nro_che
-        let fecha_vencimiento = document.createElement('td')
-        fecha_vencimiento.innerHTML = objeto.fec_vto
-        let fecha_ingreso = document.createElement('td')
-        fecha_ingreso.innerHTML = objeto.fec_in
-        let impcheque = document.createElement('td')
-        impcheque.innerHTML = objeto.imp_che
-        let endcheque = document.createElement('td')
-        endcheque.innerHTML = objeto.end_che
-        let cod_cob = document.createElement('td')
-        cod_cob.innerHTML = objeto.cod_cob
-        let fircheque = document.createElement('td')
-        fircheque.innerHTML = objeto.fir_che
-        let cuitcheque = document.createElement('td')
-        cuitcheque.innerHTML = objeto.cuit_che
-        //prueba de ingreso rechazados
-        let destche = document.createElement('td')
-        destche.innerHTML = objeto.dest_che
-        let fecout = document.createElement('td')
-        fecout.innerHTML = objeto.fec_out
-        let fecrech = document.createElement('td')
-        fecrech.innerHTML = objeto.fec_rech
-        let obsche = document.createElement('td')
-        obsche.innerHTML=objeto.obs_che
+        let codigo = document.createElement('td');
+        codigo.innerHTML = objeto.cod_bco; //valor del cod_cob al input por INNERHTML
 
+        let codigo_suc = document.createElement('td');
+        codigo_suc.innerHTML = objeto.suc_bco;
 
-        tr.append(codigo, codigo_suc,nro_cheque, fecha_vencimiento,fecha_ingreso,impcheque,endcheque, cod_cob, fircheque,cuitcheque,destche,fecout,fecrech,obsche)   //Con append sumo los valores de las variables a la tabla
-        
-        
-        //
-        tr.onclick = ()=>{
-            // console.log(`${objeto.cod_cob} ${objeto.nom_cob}`)
-             $('#bco-numero').val(objeto.cod_bco)
-             $('#suc-numero').val(objeto.suc_bco)
-             $('#num_cheque').val(objeto.nro_che)
-             $('#endo-nombre').val(objeto.end_che)
-             $('#fec-vto').val(objeto.fec_vto)
-             //$('#fec-in').val(objeto.fec_in)
-             $('#imp-che').val(objeto.imp_che)
-             $('#fir-che').val(objeto.fir_che)
-             $('#cuit-che').val(objeto.cuit_che)
-             //prueba de ingreso rechazados
-             $('#destino').val(objeto.dest_che)
-             $('#fecha-out').val(objeto.fec_out)
-             //cobranza rechazados
-             $('#fecha-rech').val(objeto.fec_rech)
-             $('#obs_che').val(objeto.obs_che)
+        let nro_cheque = document.createElement('td');
+        nro_cheque.innerHTML = objeto.nro_che; // Corregir el nombre de la variable
 
-             obtenerNombreBanco();
-             cerrarModalEncontrar();
-           
-            //document.getElementById('codigo-cobrador').value = objeto.cod_cob
-        }
+        let fecha_vencimiento = document.createElement('td');
+        fecha_vencimiento.innerHTML = objeto.fec_vto;
 
-        table_body.append(tr)
+        let fecha_ingreso = document.createElement('td');
+        fecha_ingreso.innerHTML = objeto.fec_in;
+
+        let impcheque = document.createElement('td');
+        impcheque.innerHTML = objeto.imp_che;
+
+        let endcheque = document.createElement('td');
+        endcheque.innerHTML = objeto.end_che;
+
+        let cod_cob = document.createElement('td');
+        cod_cob.innerHTML = objeto.cod_cob;
+
+        let fircheque = document.createElement('td');
+        fircheque.innerHTML = objeto.fir_che;
+
+        let cuitcheque = document.createElement('td');
+        cuitcheque.innerHTML = objeto.cuit_che;
+
+        let destche = document.createElement('td');
+        destche.innerHTML = objeto.dest_che;
+
+        let fecout = document.createElement('td');
+        fecout.innerHTML = objeto.fec_out;
+
+        let fecrech = document.createElement('td');
+        fecrech.innerHTML = objeto.fec_rech;
+
+        let obsche = document.createElement('td');
+        obsche.innerHTML = objeto.obs_che;
+
+        tr.append(codigo, codigo_suc, nro_cheque, fecha_vencimiento, fecha_ingreso, impcheque, endcheque, cod_cob, fircheque, cuitcheque, destche, fecout, fecrech, obsche); //Con append sumo los valores de las variables a la tabla
+
+        tr.onclick = () => {
+          $('#bco-numero').val(objeto.cod_bco);
+          $('#suc-numero').val(objeto.suc_bco);
+          $('#num_cheque').val(objeto.nro_che);
+          $('#endo-nombre').val(objeto.end_che);
+          $('#fec-vto').val(objeto.fec_vto);
+          $('#imp-che').val(objeto.imp_che);
+          $('#fir-che').val(objeto.fir_che);
+          $('#cuit-che').val(objeto.cuit_che);
+          $('#destino').val(objeto.dest_che);
+          $('#fecha-out').val(objeto.fec_out);
+          $('#fecha-rech').val(objeto.fec_rech);
+          $('#obs_che').val(objeto.obs_che);
+
+          obtenerNombreBanco();
+          cerrarModalEncontrar();
+        };
+
+        table_body.append(tr);
+      });
+
+      // Verificar si no hay resultados después de recorrer el array
+      if (respuesta.length === 0) {
+        // Mostrar mensaje en el cuadro modal
+        table_body.innerHTML = '<tr><td colspan="14" style="color: red;"><b>No hay cheques rechazados.</b></td></tr>';
+      }
     })
-  })
-  
-})
+    .fail(() => {
+      // Manejar el fallo en la solicitud AJAX
+      console.error('Error en la solicitud AJAX');
+
+      // Mostrar mensaje de error en el cuadro modal
+      table_body.innerHTML = '<tr><td colspan="14">Error al obtener los datos.</td></tr>';
+    });
+});
 
 myModal.addEventListener('hide.bs.modal', () => {
-    
-  $('#tablacheques tr').remove()
+  $('#tablacheques tr').remove();
+});
 
-})
 
 
 

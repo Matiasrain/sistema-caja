@@ -3,6 +3,20 @@
     event.preventDefault();
 
      // Obtener la opción seleccionada
+
+     const opcionSeleccionadaElement = document.querySelector('input[name="opcion"]:checked');
+
+     if (!opcionSeleccionadaElement) {
+         console.log('Debe seleccionar una opción');
+         Swal.fire({
+             icon: 'error',
+             title: 'Error',
+             text: 'Debe seleccionar una opción de corte'
+         });
+         return; // Salir de la función sin hacer nada
+     }
+
+
      //-------------------- OPCION 1 --------------------------------------
      const opcionSeleccionada = document.querySelector('input[name="opcion"]:checked').value;
      if (opcionSeleccionada === 'opcion1') {
@@ -186,7 +200,7 @@ function calcularTotalCheques(chequesFiltrados) {
     chequesFiltrados.forEach(cheque => {
       total += parseFloat(cheque.IMP_CHE);
     });
-    return total;
+    return total.toFixed(2);
   }
 // Función para generar el contenido del modal con una tabla de los cheques filtrados
 function generarContenidoModal(chequesFiltrados) {
@@ -379,4 +393,10 @@ function generarContenidoModal(chequesFiltrados) {
     contenidoModal += '</table>';
 
     return contenidoModal;
+  }
+  function cerrarSesion() {
+    localStorage.removeItem("isLoggedIn");
+    window.location.reload(true);
+    window.location.href = "login.html";
+  
   }

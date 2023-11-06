@@ -16,12 +16,61 @@
 </head>
 <body>
   
-  <header>
-   
+  <!-- <header> -->
+  <div class="main-container">
+  <nav class="navbar navbar-expand-lg navbar-light w-100" style="background-color: #A30234;">
+      <div class="container-fluid">
+        <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../main.html"  id="dropdown2">
+            <img src="../img/home.png" alt="Logo" style="width: 20px; height: 20px; margin-right: 5px;">
+            INICIO
+          </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../img/cheque (2).png" alt="Logo" style="width: 25px; height: 25px; margin-right: 5px;">
+            CAJA
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown1">
+              <li><a class="dropdown-item" href="caja.php">Caja</a></li>
+              <li><a class="dropdown-item" href="../ingreso_rechazados.html">Ingreso de rechazados</a></li>
+              <li><a class="dropdown-item" href="../cobranza_rechazados.html">Cobranza de rechazados</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../img/stock-chart.png" alt="Logo" style="width: 20px; height: 20px; margin-right: 5px;">
+              PARAMETROS
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown2">
+              <li><a class="dropdown-item" href="../bancos.html">Bancos</a></li>
+              <li><a class="dropdown-item" href="../cobradores.html">Cobradores</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="../img/price-list.png" alt="Logo" style="width: 20px; height: 20px; margin-right: 5px;">
+                LISTADOS
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdown2">
+                <li><a class="dropdown-item" href="../carteradevalores.html">Cartera de valores</a></li>
+              </ul>
+            </li>
+          <li class="nav-item">
+          <button class="nav-link" onclick="cerrarSesion()" id="dropdown2">
+            <img src="../img/exit.png" alt="Logo" style="width: 20px; height: 20px; margin-right: 5px;">
+            SALIR
+          </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
     <div class="container">
         <div class="d-flex justify-content-between">
           <!--<a class="btn btn-primary" href="main.html">Volver</a>-->
-          <a href="../main.html" class="btn btn-primary d-flex justify-content-center align-items-center" tabindex="-1" role="button" aria-disabled="true">Volver</a>
+          <!-- <a href="../main.html" class="btn btn-primary d-flex justify-content-center align-items-center" tabindex="-1" role="button" aria-disabled="true">Volver</a> -->
 
           <!--<h1 class="fecha">Caja del: <input type="date" id="fecha" name="fecha"></h1>-->
           <!-- <a href="login.html" class="btn btn-primary d-flex justify-content-center align-items-center" tabindex="-1" role="button" aria-disabled="true">Salir</a> -->
@@ -255,9 +304,9 @@
       </div>
     </div>
   </div>
-      </div>
       
-</header>
+      
+
 
 
 <?php
@@ -310,7 +359,39 @@ if ($resultado->num_rows > 0) {
     echo'</div>';
 } else {
     // No se encontraron resultados
-    echo 'No se encontraron ingresos para la fecha seleccionada.';
+    // echo 'No se encontraron ingresos para la fecha seleccionada.';
+    // No se encontraron resultados
+    // echo 'No se encontraron egresos para la fecha seleccionada.';
+
+if ($resultado->num_rows >= 0) {
+    
+  // Inicio de la tabla
+  echo '<div class="tabla-contenedor">';
+  echo '<table class="table">';
+  echo '<thead class="table-dark">';
+  echo '<tr>';
+  echo '<th scope="col">ENDOSANTE</th>';
+  echo '<th scope="col">BANCO</th>';
+  echo '<th scope="col">COD BANCO</th>';
+  echo '<th scope="col">SUC BANCO</th>';
+  echo '<th scope="col">NUMERO</th>';
+  echo '<th scope="col">IMPORTE</th>';
+  echo '</tr>';
+  echo '<tr class="fila">';
+  echo '<td colspan="6" style="background-color: white; color: red; font-weight: bold;">NO HAY RESULTADOS</td>';
+  echo '</tr>';
+  echo '</thead>';
+  echo '<tbody>';
+
+  // Iterar sobre los resultados y generar las filas de la tabla
+ 
+
+  // Fin de la tabla
+  echo '</tbody>';
+  echo '</table>';
+  echo'</div>';
+  echo'</div>';
+}
 }
 
 //EGRESOS
@@ -356,7 +437,39 @@ if ($resultado->num_rows > 0) {
  
 } else {
     // No se encontraron resultados
-    echo 'No se encontraron egresos para la fecha seleccionada.';
+    // echo 'No se encontraron egresos para la fecha seleccionada.';
+    // No se encontraron resultados
+    // echo 'No se encontraron egresos para la fecha seleccionada.';
+
+if ($resultado->num_rows >= 0) {
+    
+  // Inicio de la tabla
+  echo '<div class="tabla-contenedor">';
+  echo '<table class="table">';
+  echo '<thead class="table-dark">';
+  echo '<tr>';
+  echo '<th scope="col">ENDOSANTE</th>';
+  echo '<th scope="col">BANCO</th>';
+  echo '<th scope="col">COD BANCO</th>';
+  echo '<th scope="col">SUC BANCO</th>';
+  echo '<th scope="col">NUMERO</th>';
+  echo '<th scope="col">IMPORTE</th>';
+  echo '</tr>';
+  echo '<tr class="fila">';
+  echo '<td colspan="6" style="background-color: white; color: red; font-weight: bold;">NO HAY RESULTADOS</td>';
+  echo '</tr>';
+  echo '</thead>';
+  echo '<tbody>';
+
+  // Iterar sobre los resultados y generar las filas de la tabla
+ 
+
+  // Fin de la tabla
+  echo '</tbody>';
+  echo '</table>';
+  echo'</div>';
+  echo'</div>';
+}
 }
 
 
@@ -365,7 +478,9 @@ if ($resultado->num_rows > 0) {
 $conn->close();
 }
 ?>
-
+</div>
+ <footer style="background-color: #A30234;"></footer>
+</div>
  
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

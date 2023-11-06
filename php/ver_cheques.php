@@ -34,10 +34,14 @@ while($row = $result->fetch_assoc()) {
 
   $cheques[] = $cheque;
 }
-} else {
-  $cheques = array();
- // echo "<tr><td colspan='4'>No se encontraron filas en la tabla cobrador.</td></tr>";
-}
+} //else {
+//   $cheques = array();
+//  // echo "<tr><td colspan='4'>No se encontraron filas en la tabla cobrador.</td></tr>";
+// }
+$response = array(
+  'sinResultados' => empty($cheques),
+  'cheques' => $cheques,
+);
 
 echo json_encode($cheques, JSON_UNESCAPED_UNICODE);
 

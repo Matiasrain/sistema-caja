@@ -17,10 +17,59 @@
   </script>
 </head>
 <body>
+  <div class="main-container">
+    <nav class="navbar navbar-expand-lg navbar-light w-100" style="background-color: #A30234;">
+      <div class="container-fluid">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="main.html"  id="dropdown2">
+              <img src="img/home.png" alt="Logo" style="width: 20px; height: 20px; margin-right: 5px;">
+              INICIO
+            </a>
+            </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="img/cheque (2).png" alt="Logo" style="width: 25px; height: 25px; margin-right: 5px;">
+            CAJA
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown1">
+              <li><a class="dropdown-item" href="php/caja.php">Caja</a></li>
+              <li><a class="dropdown-item" href="ingreso_rechazados.html">Ingreso de rechazados</a></li>
+              <li><a class="dropdown-item" href="cobranza_rechazados.html">Cobranza de rechazados</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="img/stock-chart.png" alt="Logo" style="width: 20px; height: 20px; margin-right: 5px;">
+              PARAMETROS
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown2">
+              <li><a class="dropdown-item" href="bancos.html">Bancos</a></li>
+              <li><a class="dropdown-item" href="cobradores.html">Cobradores</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="img/price-list.png" alt="Logo" style="width: 20px; height: 20px; margin-right: 5px;">
+                LISTADOS
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdown2">
+                <li><a class="dropdown-item" href="carteradevalores.html">Cartera de valores</a></li>
+              </ul>
+            </li>
+          <li class="nav-item">
+          <button class="nav-link" onclick="cerrarSesion()" id="dropdown2">
+            <img src="img/exit.png" alt="Logo" style="width: 20px; height: 20px; margin-right: 5px;">
+            SALIR
+          </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
   <div class="container">
     <div class="d-flex justify-content-between">
       <!--<a class="btn btn-primary" href="main.html">Volver</a>-->
-      <a href="main.html" class="btn btn-primary d-flex justify-content-center align-items-center" tabindex="-1" role="button" aria-disabled="true">Volver</a>
+      <!-- <a href="main.html" class="btn btn-primary d-flex justify-content-center align-items-center" tabindex="-1" role="button" aria-disabled="true">Volver</a> -->
       
       
     </div>
@@ -174,6 +223,8 @@
   </form>
 </div>
   </div>
+</div>
+  <footer style="background-color: #A30234;"></footer>
   
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

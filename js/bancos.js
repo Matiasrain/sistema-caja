@@ -63,7 +63,12 @@ myModal.addEventListener('hide.bs.modal', () => {
 
 
 
+function cerrarSesion() {
+  localStorage.removeItem("isLoggedIn");
+  window.location.reload(true);
+  window.location.href = "login.html";
 
+}
 
 
 //---------------
